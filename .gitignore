@@ -1,0 +1,5 @@
+*.log
+.env
+.DS_Store
+# Ignore raw data files to save space/bandwidth
+raw_data/*.csv

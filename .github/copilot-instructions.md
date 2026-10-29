@@ -1,0 +1,1 @@
+Always use MySQL 8.0 syntax. Explain SQL queries using practical real-world examples in a mix of Hindi and English. Do not use generic table names.

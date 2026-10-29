@@ -1,0 +1,28 @@
+name: SQL Syntax & File Check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate-sql:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Verify SQL Scripts Exist
+        run: |
+          echo "Checking SQL project structure..."
+          ls -la sql_scripts/
+
+      - name: Run SQLFluff Linter (MySQL Dialect)
+        uses: yu-iskw/action-sqlfluff@v3
+        with:
+          sqlfluff_version: "3.0.0"
+          command: lint
+          paths: sql_scripts/
+          dialect: mysql
+        continue-on-error: true
